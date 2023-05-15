@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adventure Run Game</title>
+  </head>
+  <body>
+    <h3>Adventure Run Game</h3>
+    <canvas id="canvas" width="1000" height="600"></canvas>
+    
+
+    <script>
+      window.onload = function() {
+        var cvs = document.getElementById("canvas");
+        var ctx = cvs.getContext("2d");
+
+        var giris = new Image();
+        giris.src = "resim/giris.png";
+        
+
+        giris.onload = function() {
+          ctx.drawImage(giris, 0, 0);
+          
+        };
+
+        cvs.addEventListener("click", function() {
+          // Giriş resmine tıklandığında
+
+          // Canvas'ı temizle
+          ctx.clearRect(0, 0, cvs.width, cvs.height);
+
+          // Deneme.js dosyasını yükle ve çalıştır
+          var script = document.createElement("script");
+          script.src = "oyun.js";
+          document.body.appendChild(script);
+        });
+      };
+    </script>
+  </body>
+</html>
+
